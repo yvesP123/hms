@@ -1,0 +1,229 @@
+{% extends "hms/base.html" %}
+
+{% block title %}Doctor Dashboard - Hospital Management System{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <!-- Top Header -->
+    <div class="top-header">
+        <div class="header-left">
+            <div class="logo">
+                <i class="fas fa-hospital"></i>
+                <span>HMS</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="role-badge doctor-badge">doctor panel</div>
+            <div class="dropdown">
+                <button class="btn dropdown-toggle language-btn" type="button" data-bs-toggle="dropdown">
+                    Select Language
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">English</a></li>
+                    <li><a class="dropdown-item" href="#">Spanish</a></li>
+                </ul>
+            </div>
+            <div class="dropdown">
+                <button class="btn dropdown-toggle account-btn" type="button" data-bs-toggle="dropdown">
+                    Account
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard-body">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="dashboard-title">
+                <i class="fas fa-info-circle"></i>
+                Doctor Dashboard
+            </div>
+            <div class="stats-header">
+                {% for stat_name, stat_value in stats.items %}
+                <div class="stat-item">
+                    <div class="stat-label">{{ stat_name }}</div>
+                    <div class="stat-value">{{ stat_value }}</div>
+                </div>
+                {% endfor %}
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active">
+                    <i class="fas fa-tachometer-alt"></i>
+                    Dashboard
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-user"></i>
+                    Patient
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-calendar-check"></i>
+                    Manage Appointment
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-prescription"></i>
+                    Manage Prescription
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-bed"></i>
+                    Bed Allotment
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-tint"></i>
+                    View Blood Bank
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-chart-line"></i>
+                    Manage Report
+                </a>
+                <a href="#" class="nav-item">
+                    <i class="fas fa-user-circle"></i>
+                    Profile
+                </a>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="content-grid">
+                <!-- Dashboard Cards -->
+                <div class="dashboard-cards">
+                    <div class="card-row">
+                        <div class="dashboard-card">
+                            <i class="fas fa-user"></i>
+                            <span>Patient</span>
+                        </div>
+                        <div class="dashboard-card">
+                            <i class="fas fa-calendar-check"></i>
+                            <span>Appointment</span>
+                        </div>
+                        <div class="dashboard-card">
+                            <i class="fas fa-prescription"></i>
+                            <span>Prescription</span>
+                        </div>
+                        <div class="dashboard-card">
+                            <i class="fas fa-bed"></i>
+                            <span>Bed Allotment</span>
+                        </div>
+                        <div class="dashboard-card">
+                            <i class="fas fa-tint"></i>
+                            <span>Blood Bank</span>
+                        </div>
+                        <div class="dashboard-card">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Manage Report</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Calendar and Noticeboard -->
+                <div class="right-panel">
+                    <!-- Calendar -->
+                    <div class="calendar-widget">
+                        <div class="calendar-header">
+                            <i class="fas fa-calendar"></i>
+                            Calendar Schedule
+                            <div class="calendar-controls">
+                                <button class="btn btn-sm">month</button>
+                                <button class="btn btn-sm">week</button>
+                                <button class="btn btn-sm">day</button>
+                            </div>
+                        </div>
+                        <div class="calendar-nav">
+                            <button class="btn btn-sm"><</button>
+                            <span>May 2025</span>
+                            <button class="btn btn-sm">></button>
+                        </div>
+                        <div class="calendar-grid">
+                            <div class="calendar-days">
+                                <div class="day-header">Sun</div>
+                                <div class="day-header">Mon</div>
+                                <div class="day-header">Tue</div>
+                                <div class="day-header">Wed</div>
+                                <div class="day-header">Thu</div>
+                                <div class="day-header">Fri</div>
+                                <div class="day-header">Sat</div>
+                            </div>
+                            <div class="calendar-dates">
+                                <div class="date">27</div>
+                                <div class="date">28</div>
+                                <div class="date">29</div>
+                                <div class="date">30</div>
+                                <div class="date">1</div>
+                                <div class="date">2</div>
+                                <div class="date">3</div>
+                                <div class="date">4</div>
+                                <div class="date">5</div>
+                                <div class="date">6</div>
+                                <div class="date">7</div>
+                                <div class="date">8</div>
+                                <div class="date">9</div>
+                                <div class="date">10</div>
+                                <div class="date">11</div>
+                                <div class="date">12</div>
+                                <div class="date">13</div>
+                                <div class="date">14</div>
+                                <div class="date">15</div>
+                                <div class="date">16</div>
+                                <div class="date">17</div>
+                                <div class="date">18</div>
+                                <div class="date">19</div>
+                                <div class="date">20</div>
+                                <div class="date">21</div>
+                                <div class="date">22</div>
+                                <div class="date">23</div>
+                                <div class="date">24</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Noticeboard -->
+                    <div class="noticeboard">
+                        <div class="noticeboard-header">
+                            <i class="fas fa-clipboard-list"></i>
+                            Noticeboard
+                        </div>
+                        <div class="notices">
+                            <div class="notice-item">
+                                <div class="notice-icon">
+                                    <i class="fas fa-info-circle"></i>
+                                </div>
+                                <div class="notice-content">
+                                    <div class="notice-title">Demo Notice One</div>
+                                    <div class="notice-text">This is a demo text. This is a demo text. This is a demo text. This is a demo text. This is a demo text.</div>
+                                </div>
+                                <div class="notice-date">15<br>Mar</div>
+                            </div>
+                            
+                            <div class="notice-item">
+                                <div class="notice-icon">
+                                    <i class="fas fa-info-circle"></i>
+                                </div>
+                                <div class="notice-content">
+                                    <div class="notice-title">Demo Notice Two</div>
+                                    <div class="notice-text">This is a demo text. This is a demo text. This is a demo text. This is a demo text. This is a demo text.</div>
+                                </div>
+                                <div class="notice-date">01<br>Apr</div>
+                            </div>
+
+                            <div class="notice-item">
+                                <div class="notice-icon">
+                                    <i class="fas fa-exclamation-circle"></i>
+                                </div>
+                                <div class="notice-content">
+                                    <div class="notice-title">Testing HMS - CI</div>
+                                    <div class="notice-text">This is a demo text. This is a demo text. This is a demo text.</div>
+                                </div>
+                                <div class="notice-date">29<br>Apr</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

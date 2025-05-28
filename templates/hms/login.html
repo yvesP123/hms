@@ -1,0 +1,67 @@
+{% extends "hms/base.html" %}
+
+{% block title %}Hospital Management System - Login{% endblock %}
+
+{% block content %}
+<div class="login-container">
+    <div class="login-form">
+        <div class="text-center mb-4">
+            <h2 class="login-title">Hospital Management System</h2>
+        </div>
+        
+        <div class="login-panel">
+            <h5 class="panel-title">Login Panel</h5>
+            
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+            
+            <form method="POST">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <select class="form-select" name="role" required>
+                        <option value="">Select Role</option>
+                        <option value="admin">Admin</option>
+                        <option value="doctor">Doctor</option>
+                        <option value="accountant">Accountant</option>
+                        <option value="pharmacist">Pharmacist</option>
+                        <option value="nurse">Nurse</option>
+                        <option value="patient">Patient</option>
+                        <option value="lab">Laboratorist</option>
+                    </select>
+                </div>
+                
+                <div class="mb-3">
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                        <input type="email" class="form-control" name="email" placeholder="admin@mail.com" required>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                        <input type="password" class="form-control" name="password" placeholder="••••••••••" required>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-success w-100 login-btn">Login</button>
+            </form>
+            
+            <div class="text-center mt-3">
+                <a href="#" class="forgot-password">Forgot Password?</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer-text">
+        © 2024 Hospital Management System - Developed by<br>
+        John Santos
+    </div>
+</div>
+{% endblock %}
